@@ -41,7 +41,7 @@ body {
   min-height: 100%;
   padding: 1rem;
 }
-
+/* container & title */
 .todo-container {
   padding: clamp(1rem, 5vw, 2rem) 0;
 }
@@ -57,6 +57,7 @@ body {
   margin-top: 2rem;
 }
 
+/* input from */
 .todo-input-form {
   background: var(--input-bg-light);
   border-radius: var(--radius);
@@ -82,6 +83,14 @@ body {
   cursor: pointer;
 }
 
+.todo-select:focus,
+.todo-input:focus {
+  outline: var(--primary-color) !important;
+  border-color: #000 !important;
+  transition: var(--transition);
+}
+
+/* add butto */
 .add-todo-btn {
   min-width: 45px !important;
   height: 45px !important;
@@ -102,12 +111,12 @@ body {
   opacity: 0.9;
 }
 
-/* === Filter & Sort Bar Wrapper === */
+/* Filter & Sort Bar */
 .filter-sort-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* agar responsif */
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.5rem;
 }
@@ -138,176 +147,9 @@ body {
   cursor: pointer;
 }
 
-.sort-bar select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(33, 37, 41, 0.2);
-}
-
-/* Hover effect seperti FilterBar */
 .sort-bar select:hover {
   background-color: var(--input-bg-light);
   color: var(--text-light);
-}
-
-/* === Responsiveness === */
-@media (max-width: 768px) {
-  .filter-sort-wrapper {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .sort-bar {
-    justify-content: center;
-  }
-
-  .sort-bar select {
-    width: 100%;
-    text-align: center;
-  }
-}
-.status-to-do {
-  background-color: #e2e8f0 !important;
-  color: var(--status-todo) !important;
-}
-
-.status-in-progress {
-  background-color: var(--status-in-progress) !important;
-  color: var(--status-todo) !important;
-}
-
-.status-done {
-  background-color: var(--primary-color) !important;
-  color: var(--input-bg-light) !important;
-}
-
-/* Checkbox */
-.todo-checkbox {
-  margin: 0;
-}
-
-.todo-checkbox .form-check-input {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  border: 2px solid var(--border-light);
-  cursor: pointer;
-  margin-top: 0;
-}
-
-.todo-checkbox .form-check-input:checked {
-  background-color: var(--status-done);
-  border-color: var(--status-done);
-}
-
-/* Strike through text when completed */
-.strike {
-  text-decoration: line-through;
-  color: var(--secondary-color);
-  opacity: 0.7;
-}
-
-.todo-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-.todo-details {
-  display: flex;
-  gap: 2rem;
-}
-
-.task-section,
-.priority-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.task-label,
-.priority-label {
-  font-size: 0.85rem;
-  color: var(--secondary-color);
-  margin-bottom: 0.25rem;
-}
-
-.task-name {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-light);
-}
-
-.todo-item-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-light);
-}
-
-.action-buttons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.todo-checkbox {
-  cursor: pointer;
-}
-
-.todo-checkbox .form-check-input {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  border: 2px solid var(--border-light);
-  cursor: pointer;
-}
-
-.todo-checkbox .form-check-input:checked {
-  background-color: var(--status-done);
-  border-color: var(--status-done);
-}
-
-/* Edit Modal Styles */
-.edit-modal .modal-content {
-  border-radius: var(--radius);
-  border: solid 2px var(--border-dark);
-}
-.todo-list-container {
-  margin: 2rem 0;
-}
-
-.todo-footer {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.todo-count {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
-.todo-quote {
-  font-size: 0.9rem;
-  color: var(--secondary-color);
-  font-style: italic;
-}
-
-.strike {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-.todo-select:focus,
-.todo-input:focus {
-  outline: var(
-    --primary-color
-  ) !important; /* Hilangkan outline default browser */
-  border-color: #000 !important; /* Warna border hitam */
-  transition: var(--transition);
 }
 
 .btn-filter {
@@ -326,8 +168,7 @@ body {
   background-color: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
 }
-
-/* Priority badge override */
+/* badges */
 .priority-badge {
   font-weight: 600;
   padding: 0.4rem 0.9rem;
@@ -351,7 +192,6 @@ body {
   color: #fff !important;
 }
 
-/* Status badge consistent look */
 .status-badge {
   border-radius: 2rem;
   font-size: 0.8rem;
@@ -360,74 +200,29 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-  .todo-item-content {
-    flex-direction: column;
-    align-items: flex-start !important;
-  }
-
-  .status-badge {
-    margin-top: 0.25rem;
-  }
-
-  .action-buttons {
-    margin-top: 0.5rem;
-  }
+.status-to-do {
+  background-color: #e2e8f0 !important;
+  color: var(--status-todo) !important;
 }
 
-/* === Todo Item Vertical Alignment Fix & Styling === */
-.todo-item-content {
-  min-height: 80px;
-  display: flex;
-  align-items: center;
+.status-in-progress {
+  background-color: var(--status-in-progress) !important;
+  color: var(--status-todo) !important;
 }
 
-/* Checkbox Styling */
-.todo-checkbox .form-check-input {
-  width: 1.3rem;
-  height: 1.3rem;
-  border: 2px solid var(--primary-color);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.status-done {
+  background-color: var(--primary-color) !important;
+  color: var(--input-bg-light) !important;
 }
 
-.todo-checkbox .form-check-input:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.todo-item-row {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 88px; /* Lebih lega seperti contoh */
-}
-
-/* === Checkbox === */
-.todo-checkbox .form-check-input {
-  width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 50%;
-  border: 2px solid var(--primary-color);
-  transition: all 0.2s ease;
-}
-
-.todo-checkbox .form-check-input:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-/* ==== Consistent Layout & Spacing ==== */
+/* todo item */
 .todo-item-card {
   background: var(--input-bg-light);
   border: 1px solid var(--border-dark);
   border-radius: var(--radius);
   box-shadow: 0 2px 8px var(--shadow-color);
   padding: 1rem 1.25rem;
-  margin-bottom: 1rem; /* jarak antar item tetap */
+  margin-bottom: 1rem;
   transition: all 0.25s ease;
   display: flex;
   align-items: center;
@@ -439,6 +234,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--primary-color);
 }
+
 .todo-item-row {
   display: grid;
   grid-template-columns: 1.4fr 0.8fr 0.4fr;
@@ -448,7 +244,6 @@ body {
   min-height: 90px;
 }
 
-/* Task bagian kiri */
 .todo-task {
   display: flex;
   align-items: center;
@@ -456,15 +251,12 @@ body {
   min-width: 0;
 }
 
-/* Priority & status sejajar */
-/* === Meta Section with Date and Badges === */
 .todo-meta {
   display: flex;
   align-items: center;
-  gap: 0.8rem; /* jarak antara tanggal dan badge */
+  gap: 0.8rem;
 }
 
-/* Kolom tanggal vertikal */
 .due-date-column {
   display: flex;
   flex-direction: column;
@@ -498,15 +290,14 @@ body {
   text-transform: capitalize;
 }
 
-/* Badges sejajar horizontal */
 .meta-badges {
   display: flex;
-  flex-direction: column; /* dari horizontal -> vertikal */
+  flex-direction: column;
   align-items: flex-start;
-  gap: 0.35rem; /* jarak antar badge */
+  gap: 0.35rem;
 }
 
-/* Tombol selalu rata kanan */
+/* action buttons */
 .action-buttons {
   display: flex;
   align-items: center;
@@ -514,7 +305,6 @@ body {
   gap: 0.5rem;
 }
 
-/* ==== Tombol Edit & Hapus ==== */
 .btn-icon-dark {
   width: 36px;
   height: 36px;
@@ -524,7 +314,7 @@ body {
   border-radius: 8px;
   background-color: var(--input-bg-light);
   border: 1px solid var(--primary-color);
-  color: #000 !important; /* ikon hitam */
+  color: #000 !important;
   transition: all 0.25s ease;
 }
 
@@ -536,8 +326,12 @@ body {
   background-color: var(--border-light);
   border-color: var(--primary-color);
 }
+/* chekbox */
+.todo-checkbox {
+  margin: 0;
+  cursor: pointer;
+}
 
-/* Checkbox konsisten */
 .todo-checkbox .form-check-input {
   width: 1.25rem;
   height: 1.25rem;
@@ -554,19 +348,32 @@ body {
   border-color: var(--primary-color);
 }
 
-/* Responsif */
-@media (max-width: 768px) {
-  .todo-item-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    min-height: auto;
-  }
-
-  .action-buttons {
-    justify-content: flex-start;
-  }
+.strike {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+  opacity: 0.7;
 }
-/* Modal delete konfirmasi */
+/* footer */
+.todo-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.todo-count {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.todo-quote {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* modal delete */
 .delete-confirm-modal .modal-content {
   border-radius: 14px;
   border: none;
@@ -579,4 +386,41 @@ body {
 
 .delete-confirm-modal .modal-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* resposive */
+@media (max-width: 768px) {
+  .filter-sort-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-bar {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .sort-bar select {
+    width: 100%;
+    text-align: center;
+  }
+
+  .todo-item-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    min-height: auto;
+  }
+
+  .action-buttons {
+    justify-content: flex-start;
+  }
+
+  .status-badge {
+    margin-top: 0.25rem;
+  }
+
+  .todo-item-content {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
 }

@@ -110,7 +110,7 @@ export default function App() {
                   </div>
                   <div className='todo-quote'>
                     "Doing what you love is the cornerstone of having abundance
-                    in your life." – Wayne Dyer
+                    in your life." - Wayne Dyer
                   </div>
                 </div>
               </div>
