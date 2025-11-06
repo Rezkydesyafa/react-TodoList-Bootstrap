@@ -6,6 +6,7 @@ export default function TodoInput({ onAdd }) {
     text: '',
     priority: 'Medium',
     status: 'To Do',
+    dueDate: '',
   });
   const [validated, setValidated] = useState(false);
 
@@ -32,6 +33,7 @@ export default function TodoInput({ onAdd }) {
       text: '',
       priority: 'Medium',
       status: 'To Do',
+      dueDate: '',
     });
     setValidated(false);
   };
@@ -83,10 +85,25 @@ export default function TodoInput({ onAdd }) {
               <option value='In Progress'>In Progress</option>
               <option value='Done'>Done</option>
             </Form.Select>
-            <Button variant='dark' type='submit' className='add-todo-btn'>
-              <i className='bi bi-plus-lg'></i>
-            </Button>
           </div>
+        </Col>
+        <Col xs={12}>
+          <Form.Control
+            type='date'
+            name='dueDate'
+            value={formData.dueDate}
+            onChange={handleChange}
+            className='todo-input'
+            required
+          />
+          <Form.Control.Feedback type='invalid'>
+            Please set a due date for the task.
+          </Form.Control.Feedback>
+        </Col>
+        <Col xs={12} className='text-end'>
+          <Button variant='dark' type='submit' className='add-todo-btn'>
+            <i className='bi bi-plus-lg'></i>
+          </Button>
         </Col>
       </Row>
     </Form>

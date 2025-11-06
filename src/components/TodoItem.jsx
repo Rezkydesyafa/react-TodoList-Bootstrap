@@ -76,15 +76,37 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
 
           {/* Priority + Status Section */}
           <div className='todo-meta'>
-            <Badge
-              className={`priority-badge ${getPriorityClass(todo.priority)}`}
-            >
-              {todo.priority || 'Medium'}
-            </Badge>
+            {/* Bagian tanggal di kiri */}
+            {todo.dueDate && (
+              <div className='due-date-column text-center'>
+                <i className='bi bi-calendar-event'></i>
+                <div className='due-date-text'>
+                  <div className='due-day'>
+                    {new Date(todo.dueDate).toLocaleDateString('id-ID', {
+                      day: 'numeric',
+                    })}
+                  </div>
+                  <div className='due-month'>
+                    {new Date(todo.dueDate).toLocaleDateString('id-ID', {
+                      month: 'short',
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
 
-            <Badge className={`status-badge ${getStatusClass(todo.status)}`}>
-              {todo.status || 'To Do'}
-            </Badge>
+            {/* Bagian badges di kanan */}
+            <div className='meta-badges'>
+              <Badge
+                className={`priority-badge ${getPriorityClass(todo.priority)}`}
+              >
+                {todo.priority || 'Medium'}
+              </Badge>
+
+              <Badge className={`status-badge ${getStatusClass(todo.status)}`}>
+                {todo.status || 'To Do'}
+              </Badge>
+            </div>
           </div>
 
           {/* Action Buttons */}

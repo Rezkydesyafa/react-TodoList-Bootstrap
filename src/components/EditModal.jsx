@@ -5,11 +5,13 @@ export default function EditModal({ show, onHide, onSave, initial }) {
   const [text, setText] = useState(initial?.text ?? '');
   const [priority, setPriority] = useState(initial?.priority ?? 'Medium');
   const [status, setStatus] = useState(initial?.status ?? 'To Do');
+  const [dueDate, setDueDate] = useState(initial?.dueDate ?? '');
 
   useEffect(() => {
     setText(initial?.text ?? '');
     setPriority(initial?.priority ?? 'Medium');
     setStatus(initial?.status ?? 'To Do');
+    setDueDate(initial?.dueDate ?? '');
   }, [initial]);
 
   const handleSave = () => {
@@ -19,6 +21,7 @@ export default function EditModal({ show, onHide, onSave, initial }) {
       text: text.trim(),
       priority,
       status,
+      dueDate,
     });
   };
 
@@ -60,6 +63,15 @@ export default function EditModal({ show, onHide, onSave, initial }) {
             <option value='In Progress'>In Progress</option>
             <option value='Done'>Done</option>
           </Form.Select>
+        </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label>Due Date</Form.Label>
+          <Form.Control
+            type='date'
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
         </Form.Group>
       </Modal.Body>
       <Modal.Footer>

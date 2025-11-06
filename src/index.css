@@ -102,6 +102,69 @@ body {
   opacity: 0.9;
 }
 
+/* === Filter & Sort Bar Wrapper === */
+.filter-sort-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* agar responsif */
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-bar .sort-label {
+  font-weight: 500;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+.sort-bar select,
+.sort-bar .form-select {
+  border: 1px solid var(--primary-color);
+  border-radius: var(--radius);
+  background-color: var(--background-light);
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+  width: auto;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sort-bar select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(33, 37, 41, 0.2);
+}
+
+/* Hover effect seperti FilterBar */
+.sort-bar select:hover {
+  background-color: var(--input-bg-light);
+  color: var(--text-light);
+}
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+  .filter-sort-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-bar {
+    justify-content: center;
+  }
+
+  .sort-bar select {
+    width: 100%;
+    text-align: center;
+  }
+}
 .status-to-do {
   background-color: #e2e8f0 !important;
   color: var(--status-todo) !important;
@@ -394,11 +457,53 @@ body {
 }
 
 /* Priority & status sejajar */
+/* === Meta Section with Date and Badges === */
 .todo-meta {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  justify-content: flex-start;
+  gap: 0.8rem; /* jarak antara tanggal dan badge */
+}
+
+/* Kolom tanggal vertikal */
+.due-date-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  color: var(--secondary-color);
+}
+
+.due-date-column i {
+  color: var(--primary-color);
+  margin-bottom: 0.35rem;
+}
+
+.due-date-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.due-day {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.due-month {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  text-transform: capitalize;
+}
+
+/* Badges sejajar horizontal */
+.meta-badges {
+  display: flex;
+  flex-direction: column; /* dari horizontal -> vertikal */
+  align-items: flex-start;
+  gap: 0.35rem; /* jarak antar badge */
 }
 
 /* Tombol selalu rata kanan */
