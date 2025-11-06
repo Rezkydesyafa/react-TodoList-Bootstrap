@@ -94,6 +94,13 @@ react-TodoList-Bootstrap/
 
 
 
+
+
+
+
+
+
+
 ---
 
 ## Author
@@ -103,9 +110,4 @@ LinkedIn: [linkedin.com/in/rezkydesyafa](https://www.linkedin.com/in/rezkydesyaf
 
 ---
 
-```
-
----
-
-Apakah kamu ingin saya tambahkan juga versi **dengan badge (React, Bootstrap, License)** di bagian atas agar tampilan GitHub-nya lebih profesional lagi?
 ```
