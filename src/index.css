@@ -19,7 +19,7 @@
 
   /* Status Colors */
   --status-todo: #6c757d;
-  --status-in-progress: #0d6efd;
+  --status-in-progress: #c9f0e2;
   --status-done: #198754;
 }
 
@@ -63,12 +63,12 @@ body {
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 12px var(--shadow-color);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-dark);
 }
 
 .todo-input,
 .todo-select {
-  border: 1px solid var(--border-light) !important;
+  border: 1px solid var(--border-dark) !important;
   border-radius: var(--radius) !important;
   padding: 0.75rem 1rem !important;
   font-size: 1rem !important;
@@ -102,55 +102,19 @@ body {
   opacity: 0.9;
 }
 
-/* Base styles */
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Priority Badge */
-.priority-badge {
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-}
-
-.priority-high {
-  background-color: var(--priority-high);
-  color: #fff;
-}
-
-.priority-medium {
-  background-color: var(--priority-medium);
-  color: #000;
-}
-
-.priority-low {
-  background-color: var(--priority-low);
-  color: #fff;
-}
-
-/* Status Badge */
-.status-badge {
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  font-size: clamp(0.7rem, 2vw, 0.75rem);
-  font-weight: 500;
-}
-
 .status-to-do {
   background-color: #e2e8f0 !important;
-  color: #475569 !important;
+  color: var(--status-todo) !important;
 }
 
 .status-in-progress {
-  background-color: #e0e7ff !important;
-  color: #4834d4 !important;
+  background-color: var(--status-in-progress) !important;
+  color: var(--status-todo) !important;
 }
 
 .status-done {
-  background-color: #f1f5f9 !important;
-  color: #6c5ce7 !important;
+  background-color: var(--primary-color) !important;
+  color: var(--input-bg-light) !important;
 }
 
 /* Checkbox */
@@ -211,18 +175,6 @@ body {
   color: var(--text-light);
 }
 
-.priority-value {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.status-badge {
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  border-radius: 2rem;
-  font-size: 0.85rem;
-}
-
 .todo-item-actions {
   display: flex;
   justify-content: space-between;
@@ -257,7 +209,7 @@ body {
 /* Edit Modal Styles */
 .edit-modal .modal-content {
   border-radius: var(--radius);
-  border: none;
+  border: solid 2px var(--border-dark);
 }
 .todo-list-container {
   margin: 2rem 0;
@@ -286,8 +238,6 @@ body {
   text-decoration: line-through;
   opacity: 0.6;
 }
-
-/* Outline hitam saat dropdown atau input aktif */
 .todo-select:focus,
 .todo-input:focus {
   outline: var(
@@ -330,7 +280,7 @@ body {
 
 .priority-medium {
   background-color: var(--priority-medium) !important;
-  color: #000 !important;
+  color: var(--text-light) !important;
 }
 
 .priority-low {
@@ -345,13 +295,6 @@ body {
   padding: 0.45rem 1.1rem;
   font-weight: 600;
   letter-spacing: 0.3px;
-}
-
-/* To-Do specific color adjustment */
-.status-badge[style*='--status-todo'],
-.status-to-do {
-  background-color: var(--status-todo) !important;
-  color: #fff !important;
 }
 
 /* Responsiveness */
@@ -414,26 +357,10 @@ body {
   border-color: var(--primary-color);
 }
 
-/* === Priority & Status Badges === */
-.priority-badge {
-  font-weight: 600;
-  padding: 0.35rem 0.9rem;
-  border-radius: 1rem;
-  font-size: 0.85rem;
-}
-
-.status-badge {
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.4rem 1.1rem;
-  text-transform: capitalize;
-}
-
 /* ==== Consistent Layout & Spacing ==== */
 .todo-item-card {
   background: var(--input-bg-light);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-dark);
   border-radius: var(--radius);
   box-shadow: 0 2px 8px var(--shadow-color);
   padding: 1rem 1.25rem;
@@ -446,17 +373,16 @@ body {
 
 .todo-item-card:hover {
   transform: translateY(-2px);
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
-  border: 1px solid var(--border-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--primary-color);
 }
-/* Struktur isi todo */
 .todo-item-row {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 0.4fr; /* Task | Priority+Status | Actions */
+  grid-template-columns: 1.4fr 0.8fr 0.4fr;
   align-items: center;
   gap: 1rem;
   width: 100%;
-  min-height: 90px; /* tinggi seragam */
+  min-height: 90px;
 }
 
 /* Task bagian kiri */
