@@ -1,11 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
-/**
- * Komponen pembungkus animasi universal
- * -------------------------------------
- * Gunakan <MotionWrapper> untuk membungkus elemen apapun
- * agar punya animasi masuk/keluar & transisi layout yang halus.
- */
 export default function MotionWrapper({
   children,
   layout = true,

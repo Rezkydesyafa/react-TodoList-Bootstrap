@@ -10,7 +10,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 
 export default function App() {
   const [todos, setTodos] = useLocalStorage('todos', [
-    // Example seed (you can clear this after first run)
+    // Example
     // { id: 1, text: 'This is an example of task #1', completed: true },
     // { id: 2, text: 'This is an example of task #2', completed: false },
   ]);
