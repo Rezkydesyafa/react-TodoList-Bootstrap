@@ -1,6 +1,3 @@
-
-
-
 # React To-Do List App (Bootstrap 5)
 
 A modern and responsive To-Do List web application built with **React JS** and **Bootstrap 5.3**.  
@@ -10,35 +7,36 @@ This project features smooth animations, clean design, and practical task manage
 
 ## Features
 
-- Add, edit, and delete tasks easily  
-- Assign priority levels (High, Medium, Low)  
-- Manage task status (To Do, In Progress, Done)  
-- Set and display due dates dynamically  
-- Filter tasks by completion status (All, Active, Completed)  
-- Sort tasks by priority, status, or due date  
-- Persistent data using `localStorage`  
-- Smooth animations powered by **Framer Motion**  
+- Add, edit, and delete tasks easily
+- Assign priority levels (High, Medium, Low)
+- Manage task status (To Do, In Progress, Done)
+- Set and display due dates dynamically
+- Filter tasks by completion status (All, Active, Completed)
+- Sort tasks by priority, status, or due date
+- Persistent data using `localStorage`
+- Smooth animations powered by **Framer Motion**
 - Fully responsive layout using **Bootstrap 5**
 
 ---
 
 ## Tech Stack
 
-- React 19 + Vite  
-- Bootstrap 5.3  
-- Framer Motion  
-- React Icons  
-- LocalStorage API  
+- React 19 + Vite
+- Bootstrap 5.3
+- Framer Motion
+- React Icons
+- LocalStorage API
 
 ---
 
 ## Installation
 
 **1. Clone the repository**
+
 ```bash
 git clone https://github.com/Rezkydesyafa/react-TodoList-Bootstrap.git
 cd react-TodoList-Bootstrap
-````
+```
 
 **2. Install dependencies**
 
@@ -92,15 +90,6 @@ react-TodoList-Bootstrap/
 **Mobile View**
 <img width="390" height="1584" alt="image" src="https://github.com/user-attachments/assets/1f777964-1df8-4514-b0fa-484cbbaee96e" />
 
-
-
-
-
-
-
-
-
-
 ---
 
 ## Author
@@ -109,5 +98,7 @@ react-TodoList-Bootstrap/
 LinkedIn: [linkedin.com/in/rezkydesyafa](https://www.linkedin.com/in/rezkydesyafa)
 
 ---
+
+```
 
 ```
