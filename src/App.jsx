@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
@@ -7,6 +7,8 @@ import EditModal from './components/EditModal';
 import FilterBar from './components/FilterBar';
 import SortBar from './components/SortBar';
 import useLocalStorage from './hooks/useLocalStorage';
+import { applyFilter, sortTodos } from './utils/todos';
+import TodoFooter from './components/TodoFooter';
 
 export default function App() {
   const [todos, setTodos] = useLocalStorage('todos', [
@@ -29,51 +31,29 @@ export default function App() {
       dueDate: formData.dueDate,
       createdAt: new Date().toISOString(),
     };
-    setTodos([...todos, newTodo]);
+    setTodos((prev) => [...prev, newTodo]);
   };
   const toggleTodo = (id) => {
-    setTodos(
-      todos.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
+    setTodos((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
     );
   };
   const deleteTodo = (id) => {
-    setTodos(todos.filter((t) => t.id !== id));
+    setTodos((prev) => prev.filter((t) => t.id !== id));
   };
   const startEdit = (todo) => {
     setEditing(todo);
     setShowModal(true);
   };
   const saveEdit = (updated) => {
-    setTodos(todos.map((t) => (t.id === updated.id ? updated : t)));
+    setTodos((prev) => prev.map((t) => (t.id === updated.id ? updated : t)));
     setShowModal(false);
     setEditing(null);
   };
 
   const filtered = useMemo(() => {
-    // First apply filters
-    let result = todos;
-    if (filter === 'active') result = result.filter((t) => !t.completed);
-    if (filter === 'completed') result = result.filter((t) => t.completed);
-
-    // Then apply sorting
-    return result.sort((a, b) => {
-      switch (sortBy) {
-        case 'dueDate':
-          if (!a.dueDate) return 1;
-          if (!b.dueDate) return -1;
-          return new Date(a.dueDate) - new Date(b.dueDate);
-        case 'priority':
-          const priorityOrder = { High: 1, Medium: 2, Low: 3 };
-          return priorityOrder[a.priority] - priorityOrder[b.priority];
-        case 'status':
-          const statusOrder = { 'To Do': 1, 'In Progress': 2, Done: 3 };
-          return statusOrder[a.status] - statusOrder[b.status];
-        case 'createdAt':
-          return new Date(b.createdAt) - new Date(a.createdAt);
-        default:
-          return 0;
-      }
-    });
+    const result = applyFilter(todos, filter);
+    return sortTodos(result, sortBy);
   }, [todos, filter, sortBy]);
 
   const remaining = todos.filter((t) => !t.completed).length;
@@ -104,15 +84,7 @@ export default function App() {
                   />
                 </motion.div>
 
-                <div className='todo-footer'>
-                  <div className='todo-count'>
-                    Your remaining todos : {remaining}
-                  </div>
-                  <div className='todo-quote'>
-                    "Doing what you love is the cornerstone of having abundance
-                    in your life." - Wayne Dyer
-                  </div>
-                </div>
+                <TodoFooter remaining={remaining} />
               </div>
             </div>
           </Col>

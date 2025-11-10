@@ -1,18 +1,13 @@
 import MotionWrapper from './MotionWrapper';
 import { ButtonGroup, ToggleButton } from 'react-bootstrap';
-
-const options = [
-  { name: 'All', value: 'all' },
-  { name: 'Active', value: 'active' },
-  { name: 'Completed', value: 'completed' },
-];
+import { FILTER_OPTIONS } from '../utils/constants';
 
 export default function FilterBar({ filter, setFilter }) {
   return (
     <MotionWrapper type='scale'>
       <div className='d-flex justify-content-center my-4'>
         <ButtonGroup role='group' aria-label='Filter todos'>
-          {options.map((opt) => (
+          {FILTER_OPTIONS.map((opt) => (
             <ToggleButton
               key={opt.value}
               id={`filter-${opt.value}`}

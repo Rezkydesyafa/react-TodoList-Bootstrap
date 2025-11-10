@@ -1,13 +1,9 @@
 import { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import { DEFAULT_TODO_FIELDS } from '../utils/constants';
 
 export default function TodoInput({ onAdd }) {
-  const [formData, setFormData] = useState({
-    text: '',
-    priority: 'Medium',
-    status: 'To Do',
-    dueDate: '',
-  });
+  const [formData, setFormData] = useState(() => ({ ...DEFAULT_TODO_FIELDS }));
   const [validated, setValidated] = useState(false);
 
   const handleChange = (e) => {
@@ -29,12 +25,7 @@ export default function TodoInput({ onAdd }) {
     }
 
     onAdd(formData);
-    setFormData({
-      text: '',
-      priority: 'Medium',
-      status: 'To Do',
-      dueDate: '',
-    });
+    setFormData({ ...DEFAULT_TODO_FIELDS });
     setValidated(false);
   };
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { PRIORITIES, STATUSES } from '../utils/constants';
 
 export default function EditModal({ show, onHide, onSave, initial }) {
   const [text, setText] = useState(initial?.text ?? '');
@@ -47,9 +48,11 @@ export default function EditModal({ show, onHide, onSave, initial }) {
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
           >
-            <option value='High'>High</option>
-            <option value='Medium'>Medium</option>
-            <option value='Low'>Low</option>
+            {PRIORITIES.map((p) => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
           </Form.Select>
         </Form.Group>
 
@@ -59,9 +62,11 @@ export default function EditModal({ show, onHide, onSave, initial }) {
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option value='To Do'>To Do</option>
-            <option value='In Progress'>In Progress</option>
-            <option value='Done'>Done</option>
+            {STATUSES.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
           </Form.Select>
         </Form.Group>
 

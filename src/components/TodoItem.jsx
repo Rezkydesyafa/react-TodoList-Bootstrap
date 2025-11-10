@@ -2,6 +2,18 @@ import { useState } from 'react';
 import { Button, Form, Badge, Modal } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
+const STATUS_CLASS = {
+  'to do': 'status-to-do',
+  'in progress': 'status-in-progress',
+  done: 'status-done',
+};
+
+const PRIORITY_CLASS = {
+  high: 'priority-high',
+  medium: 'priority-medium',
+  low: 'priority-low',
+};
+
 export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   const [showConfirm, setShowConfirm] = useState(false); // modal state
 
@@ -19,30 +31,16 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   };
 
   const getStatusClass = (status) => {
-    switch (status?.toLowerCase()) {
-      case 'to do':
-        return 'status-to-do';
-      case 'in progress':
-        return 'status-in-progress';
-      case 'done':
-        return 'status-done';
-      default:
-        return 'status-to-do';
-    }
+    const key = status?.toLowerCase();
+    return STATUS_CLASS[key] ?? 'status-to-do';
   };
 
   const getPriorityClass = (priority) => {
-    switch (priority?.toLowerCase()) {
-      case 'high':
-        return 'priority-high';
-      case 'medium':
-        return 'priority-medium';
-      case 'low':
-        return 'priority-low';
-      default:
-        return 'priority-medium';
-    }
+    const key = priority?.toLowerCase();
+    return PRIORITY_CLASS[key] ?? 'priority-medium';
   };
+
+  const due = todo.dueDate ? new Date(todo.dueDate) : null;
 
   return (
     <>
@@ -82,12 +80,12 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }) {
                 <i className='bi bi-calendar-event'></i>
                 <div className='due-date-text'>
                   <div className='due-day'>
-                    {new Date(todo.dueDate).toLocaleDateString('id-ID', {
+                    {due.toLocaleDateString('id-ID', {
                       day: 'numeric',
                     })}
                   </div>
                   <div className='due-month'>
-                    {new Date(todo.dueDate).toLocaleDateString('id-ID', {
+                    {due.toLocaleDateString('id-ID', {
                       month: 'short',
                     })}
                   </div>
