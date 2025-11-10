@@ -19,6 +19,7 @@ This project features smooth animations, clean design, and practical task manage
 - Persistent data using `localStorage`  
 - Smooth animations powered by **Framer Motion**  
 - Fully responsive layout using **Bootstrap 5**
+- Responsive
 
 ---
 
@@ -90,7 +91,7 @@ react-TodoList-Bootstrap/
 <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/0e6a3b17-7696-4a8d-9734-c6888387f417" />
 
 **Mobile View**
-<img width="280" height="720" alt="image" src="https://github.com/user-attachments/assets/1f777964-1df8-4514-b0fa-484cbbaee96e" />
+--
 
 
 
