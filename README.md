@@ -87,10 +87,10 @@ react-TodoList-Bootstrap/
 ## Preview
 
 **Desktop View**
-<img width="1920" height="1158" alt="image" src="https://github.com/user-attachments/assets/0e6a3b17-7696-4a8d-9734-c6888387f417" />
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/0e6a3b17-7696-4a8d-9734-c6888387f417" />
 
 **Mobile View**
-<img width="390" height="1584" alt="image" src="https://github.com/user-attachments/assets/1f777964-1df8-4514-b0fa-484cbbaee96e" />
+<img width="320" height="1280" alt="image" src="https://github.com/user-attachments/assets/1f777964-1df8-4514-b0fa-484cbbaee96e" />
 
 
 
